@@ -1,0 +1,21 @@
+<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>کانفیگ جدید</title><link rel="stylesheet" href="/static/style.css"></head><body><main><header><div><h1>Railway VPN Panel</h1><small>{{domain or "دامنه Railway هنوز تنظیم نشده"}}</small></div><nav><a href="/">داشبورد</a><a href="/new">+ کانفیگ</a><a href="/subscription">اشتراک</a><a href="/settings">تنظیمات</a><a href="/logout">خروج</a></nav></header>
+<section class="card"><h2>ساخت Inbound</h2><form method="post" id="f" class="formgrid">
+<label>نام<input name="name" required></label>
+<label>کاربر<select name="user_id"><option value="0">بدون کاربر</option>{% for u in users %}<option value="{{u.id}}">{{u.username}} / {{u.group_name}}</option>{% endfor %}</select></label>
+<label>Protocol<select name="protocol"><option>vless</option><option>vmess</option><option>trojan</option></select></label>
+<label>Transport<select name="transport" id="transport"><option value="tcp">TCP</option><option value="ws">WebSocket</option><option value="grpc">gRPC</option><option value="xhttp">XHTTP</option><option value="httpupgrade">HTTPUpgrade</option></select></label>
+<label>Security<select name="security"><option value="none">None</option><option value="tls">TLS</option><option value="reality">Reality</option></select></label>
+<label>Domain / Dest<input name="domain" placeholder="www.cloudflare.com"></label>
+<label>SNI<input name="sni" placeholder="www.cloudflare.com"></label>
+<label>Fingerprint<select name="fingerprint"><option>chrome</option><option>firefox</option><option>safari</option><option>edge</option><option>ios</option><option>android</option></select></label>
+<label>Flow<input name="flow" placeholder="xtls-rprx-vision"></label>
+<label>Path<input name="path" value="/ws"></label>
+<label>gRPC Service<input name="service_name" value="grpc"></label>
+<label>XHTTP Mode<select name="xhttp_mode"><option>auto</option><option>packet-up</option><option>stream-up</option><option>stream-one</option></select></label>
+<label>External Host<input name="external_host" placeholder="xxxxx.proxy.rlwy.net"></label>
+<label>External Port<input name="external_port" type="number" placeholder="TCP Proxy port"></label>
+<label>انقضا<input name="expiry" type="datetime-local"></label>
+<label>سقف حجم (GB)<input name="quota_gb" type="number" step="0.1" value="0"></label>
+<label>حد IP همزمان<input name="ip_limit" type="number" value="0"></label>
+<div class="full hint">۰ یعنی بدون محدودیت. برای TCP/Reality باید External Host/Port مربوط به Railway TCP Proxy را وارد کنید. برای TLS/WS/gRPC/XHTTP/HTTPUpgrade معمولاً پورت عمومی 443 و Railway Domain استفاده می‌شود.</div>
+<button class="full">ساخت و تست Xray</button></form></section></main></body></html>

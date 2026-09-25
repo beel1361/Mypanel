@@ -1,0 +1,7 @@
+<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>تنظیمات</title><link rel="stylesheet" href="/static/style.css"></head><body><main><header><h1>تنظیمات</h1><nav><a href="/">داشبورد</a></nav></header>
+<section class="card"><form method="post" action="/settings/full" class="formgrid">
+<label>Railway / Custom Domain<input name="domain" value="{{domain}}" placeholder="panel.example.com"></label>
+<label>رمز جدید پنل<input name="admin_password_new" type="password" placeholder="خالی = بدون تغییر"></label>
+<label>Subscription Token<input name="sub_token" value="{{token}}"></label>
+<button class="full">ذخیره تنظیمات</button></form></section>
+<section class="card"><h2>نکته شبکه</h2><p class="hint">دامنه HTTPS توسط Railway terminate می‌شود. برای TCP/Reality مستقیم باید TCP Proxy بسازید و External Host/Port را در Inbound وارد کنید.</p></section></main></body></html>
